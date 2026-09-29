@@ -1,0 +1,2168 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Skander & Saloua — Invitation</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("Saloua&Skander.jpg/background2.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    color: #73162f;
+    font-family: "Cormorant Garamond", serif;
+    overflow-x: hidden;
+}
+
+
+/* =====================================================
+   PREMIERE PAGE — RIDEAU
+===================================================== */
+
+.envelope-page {
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    z-index: 9999;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+
+    /*
+       MÊME FOND QUE LA DEUXIÈME PAGE
+    */
+
+    background-image:
+        linear-gradient(
+            rgba(248,243,235,0.35),
+            rgba(248,243,235,0.35)
+        ),
+        url("Saloua&Skander.jpg/background2.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+/* voile léger */
+
+.envelope-page::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,255,255,.18),
+            rgba(90,20,40,.10)
+        );
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   RIDEAUX
+===================================================== */
+
+.curtain {
+
+    position: absolute;
+
+    top: 0;
+
+    width: 51%;
+
+    height: 100%;
+
+    z-index: 20;
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            #4a1d2a 0px,
+            #671d32 22px,
+            #7b2840 42px,
+            #541b2b 65px,
+            #8a3048 85px,
+            #4a1827 110px
+        );
+
+    box-shadow:
+        inset 0 0 80px rgba(0,0,0,.45),
+        inset 0 0 30px rgba(255,255,255,.05);
+
+   transition:
+    transform 7s cubic-bezier(.76, 0, .20, 1);
+}
+
+
+/* plis lumineux */
+
+.curtain::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            rgba(0,0,0,.22) 0px,
+            transparent 14px,
+            rgba(255,255,255,.10) 28px,
+            transparent 42px
+        );
+
+    opacity: .65;
+}
+
+
+/* bordure dorée au centre */
+
+.curtain::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    height: 100%;
+
+    width: 3px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent,
+            #c9a961 15%,
+            #f0d88d 50%,
+            #c9a961 85%,
+            transparent
+        );
+}
+
+
+.curtain-left {
+
+    left: 0;
+
+    transform: translateX(0);
+}
+
+
+.curtain-left::after {
+
+    right: 0;
+}
+
+
+.curtain-right {
+
+    right: 0;
+
+    transform: translateX(0);
+}
+
+
+.curtain-right::after {
+
+    left: 0;
+}
+
+
+/* =====================================================
+   OUVERTURE DES RIDEAUX
+===================================================== */
+
+.envelope-page.opening
+.curtain-left {
+
+    transform: translateX(-100%);
+}
+
+
+.envelope-page.opening
+.curtain-right {
+
+    transform: translateX(100%);
+}
+
+
+/* =====================================================
+   CONTENU PREMIERE PAGE
+===================================================== */
+
+.curtain-content {
+
+    position: relative;
+
+    z-index: 50;
+
+    text-align: center;
+
+    width: 90%;
+
+    max-width: 700px;
+
+    transition:
+        opacity .7s ease,
+        transform .9s ease;
+}
+
+
+.curtain-content.hidden {
+
+    opacity: 0;
+
+    transform: scale(.95);
+}
+
+
+/* petit texte */
+
+.curtain-content small {
+
+    display: block;
+
+    font-size: 17px;
+
+    letter-spacing: 6px;
+
+    color: #f3e5ca;
+
+    margin-bottom: 15px;
+
+    text-transform: uppercase;
+
+    text-shadow:
+        0 2px 8px rgba(0,0,0,.35);
+}
+
+
+/* noms */
+
+.curtain-content h1 {
+
+    font-family: "Great Vibes", cursive;
+
+    font-size: clamp(65px, 10vw, 115px);
+
+    font-weight: 400;
+
+    color: #f8f1e6;
+
+    line-height: 1;
+
+    margin-bottom: 45px;
+
+    text-shadow:
+        0 3px 15px rgba(0,0,0,.4);
+}
+
+
+/* =====================================================
+   BOUTON
+===================================================== */
+
+.open-button {
+
+    position: relative;
+
+    z-index: 100;
+
+    display: inline-block;
+
+    background: rgba(248,243,235,.96);
+
+    border: 1px solid #c9a961;
+
+    color: #73162f;
+
+    padding: 15px 38px;
+
+    letter-spacing: 3px;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition:
+        background .3s ease,
+        color .3s ease,
+        transform .3s ease;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.18);
+}
+
+
+.open-button:hover {
+
+    background: #73162f;
+
+    color: #f5eee5;
+
+    transform: translateY(-3px);
+}
+
+
+/* =====================================================
+   PETITES DECORATIONS
+===================================================== */
+
+.decor {
+
+    position: absolute;
+
+    z-index: 10;
+
+    color: #d8b96d;
+
+    opacity: .45;
+
+    font-size: 30px;
+}
+
+.decor.one {
+
+    top: 12%;
+
+    left: 12%;
+}
+
+.decor.two {
+
+    bottom: 12%;
+
+    right: 12%;
+}
+
+
+/* =====================================================
+   INVITATION — TA DEUXIEME PAGE
+===================================================== */
+
+.invitation {
+
+    display: none;
+
+    min-height: 100vh;
+
+    background-image:
+        linear-gradient(
+            rgba(248,243,235,0.35),
+            rgba(248,243,235,0.35)
+        ),
+        url("Saloua&Skander.jpg/background2.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.invitation.show {
+
+    display: block;
+
+    animation: fadeIn 1.5s ease;
+}
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+section {
+
+    padding: 90px 20px;
+
+    max-width: 1000px;
+
+    margin: auto;
+}
+
+.section-title {
+
+    text-align: center;
+
+    margin-bottom: 45px;
+}
+
+.section-title small {
+
+    letter-spacing: 4px;
+
+    color: #a18450;
+}
+
+.section-title h2 {
+
+    font-family: "Great Vibes", cursive;
+
+    font-size: 48px;
+
+    font-weight: 400;
+
+    margin-top: 8px;
+}
+
+
+/* HERO */
+
+.hero {
+
+    text-align: center;
+
+    padding: 120px 20px 100px;
+
+    background: transparent;
+}
+
+.hero .save {
+
+    letter-spacing: 6px;
+
+    font-size: 14px;
+
+    color: #a18450;
+}
+
+.hero h1 {
+
+    font-family: "Great Vibes", cursive;
+
+    font-size: clamp(55px, 10vw, 100px);
+
+    font-weight: 400;
+
+    margin: 20px 0;
+}
+
+.hero .subtitle {
+
+    font-size: 20px;
+
+    font-style: italic;
+
+    max-width: 600px;
+
+    margin: auto;
+}
+
+.hero .date-big {
+
+    margin-top: 40px;
+
+    font-size: 30px;
+
+    letter-spacing: 4px;
+}
+
+.hero .location {
+
+    margin-top: 12px;
+
+    font-size: 20px;
+}
+
+
+/* COUNTDOWN */
+
+.countdown {
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    max-width: 700px;
+
+    margin: auto;
+
+    gap: 15px;
+}
+
+.count-box {
+
+    padding: 25px 10px;
+
+    border-top: 1px solid #c9a961;
+
+    border-bottom: 1px solid #c9a961;
+
+    text-align: center;
+}
+
+.count-box span {
+
+    display: block;
+
+    font-size: 38px;
+}
+
+.count-box small {
+
+    letter-spacing: 2px;
+
+    font-size: 10px;
+}
+
+
+/* PROGRAMME */
+
+.timeline {
+
+    max-width: 600px;
+
+    margin: auto;
+
+    border-left: 1px solid #c9a961;
+}
+
+.timeline-item {
+
+    padding: 20px 30px;
+
+    position: relative;
+}
+
+.timeline-item::before {
+
+    content: "♥";
+
+    position: absolute;
+
+    left: -13px;
+
+    top: 17px;
+
+    width: 25px;
+
+    height: 25px;
+
+    background: #f8f2e8;
+
+    color: #73162f;
+
+    font-size: 19px;
+
+    line-height: 25px;
+
+    text-align: center;
+
+    border-radius: 50%;
+}
+
+.timeline-item strong {
+
+    font-size: 22px;
+}
+
+.timeline-item p {
+
+    font-size: 17px;
+
+    margin-top: 5px;
+}
+
+
+/* RSVP */
+
+.rsvp {
+
+    text-align: center;
+
+    background: #73162f;
+
+    color: #f7eee5;
+
+    max-width: none;
+}
+
+.rsvp .section-title small {
+
+    color: #d4b873;
+}
+
+.rsvp-buttons {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 20px;
+
+    flex-wrap: wrap;
+}
+
+.rsvp button {
+
+    padding: 15px 30px;
+
+    background: transparent;
+
+    border: 1px solid #73162f;
+
+    color: #73162f;
+
+    font-family: inherit;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.rsvp button:hover {
+
+    background: #d4b873;
+
+    color: #5a3a42;
+}
+
+
+/* DRESS CODE */
+
+.color-code {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin: 20px auto;
+}
+
+.color-circle {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    padding: 0;
+    flex-shrink: 0;
+}
+
+.color-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border: none;
+}
+
+.dress-intro {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+/* MESSAGE */
+
+.message-box {
+
+    max-width: 600px;
+
+    margin: auto;
+}
+
+input,
+textarea {
+
+    width: 100%;
+
+    padding: 15px;
+
+    margin-bottom: 15px;
+
+    border: 1px solid #73162f;
+
+    background: #fffaf4;
+
+    font-family: inherit;
+
+    font-size: 16px;
+
+    outline: none;
+}
+
+textarea {
+
+    height: 150px;
+
+    resize: vertical;
+}
+
+.gold-button {
+
+    display: block;
+
+    margin: auto;
+
+    padding: 14px 35px;
+
+    background: #7b1932;
+
+    color: #fff;
+
+    border: none;
+
+    font-family: inherit;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+}
+
+.guestbook-section {
+    text-align: center;
+}
+
+.guestbook-box p {
+    font-size: 20px;
+    line-height: 1.7;
+    color: #6d5959;
+    margin-bottom: 30px;
+}
+
+.guestbook-box .gold-button {
+    margin-top: 15px;
+}
+
+.guestbook-section {
+    padding-bottom: 130px;
+
+}
+
+footer {
+    text-align: center;
+    padding: 60px 20px;
+    background: #73162f;
+    color: #e8d8bd;
+
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+
+}
+
+footer h2 {
+
+    font-family: "Great Vibes", cursive;
+
+    font-size: 45px;
+
+    font-weight: 400;
+}
+
+footer p {
+
+    margin-top: 10px;
+}
+
+/* CARTES */
+
+.invitation {
+
+    padding: 60px 20px;
+}
+
+.invitation > section {
+
+    width: min(900px, 95%);
+
+    margin: 45px auto;
+
+    background: rgba(250, 246, 239, 0.88);
+
+    border: 1px solid rgba(201, 169, 97, 0.7);
+
+    box-shadow:
+        0 20px 50px rgba(50, 30, 35, 0.18);
+
+    position: relative;
+}
+
+.invitation > section::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 14px;
+    left: 14px;
+    right: 14px;
+    bottom: 14px;
+
+    border: 1px solid rgba(201, 169, 97, 0.35);
+
+    pointer-events: none;
+}
+
+.invitation > section > * {
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* POLAROIDS */
+
+.photo-section {
+
+    text-align: center;
+
+    padding: 90px 20px;
+}
+
+.polaroid-gallery {
+
+    position: relative;
+
+    width: 650px;
+
+    max-width: 95%;
+
+    height: 430px;
+
+    margin: 30px auto;
+}
+
+.polaroid {
+
+    position: absolute;
+
+    width: 190px;
+
+    padding: 10px 10px 35px;
+
+    background: #fffdf8;
+
+    box-shadow:
+        0 15px 30px rgba(50,30,35,.20);
+
+    transition: .5s;
+}
+
+.polaroid img {
+
+    width: 100%;
+
+    height: 230px;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+.polaroid span {
+
+    position: absolute;
+
+    bottom: 8px;
+
+    left: 0;
+
+    right: 0;
+
+    font-family: "Great Vibes", cursive;
+
+    font-size: 18px;
+
+    color: #5a3a42;
+}
+
+.polaroid-left {
+
+    left: 8%;
+
+    transform: rotate(-9deg);
+
+    z-index: 1;
+}
+
+.polaroid-center {
+
+    left: 50%;
+
+    transform: translateX(-50%) rotate(1deg);
+
+    z-index: 3;
+}
+
+.polaroid-right {
+
+    right: 8%;
+
+    transform: rotate(8deg);
+
+    z-index: 2;
+}
+
+.polaroid-left:hover {
+
+    transform:
+        rotate(-3deg)
+        translateY(-15px)
+        scale(1.05);
+
+    z-index: 10;
+}
+
+.polaroid-center:hover {
+
+    transform:
+        translateX(-50%)
+        translateY(-15px)
+        scale(1.05);
+
+    z-index: 10;
+}
+
+.polaroid-right:hover {
+
+    transform:
+        rotate(3deg)
+        translateY(-15px)
+        scale(1.05);
+
+    z-index: 10;
+}
+
+
+/* INTRO */
+
+.intro-text {
+
+    font-family: "Great Vibes", cursive;
+
+    max-width: 600px;
+
+    margin: 30px auto 0;
+
+    text-align: center;
+}
+
+.greeting {
+
+    font-family: "Great Vibes", cursive;
+
+    font-size: 38px;
+
+    color: #5a3a42;
+
+    margin-bottom: 22px;
+}
+
+.intro-text p {
+
+    font-size: 28px;
+
+    line-height: 1.8;
+
+    color: #6d5959;
+
+    margin: 0 auto;
+}
+
+/* =====================================================
+   NOUVEAU PREMIER BOX — HERO MARIAGE
+===================================================== */
+
+.hero {
+    text-align: center;
+    padding: 90px 35px 100px;
+}
+
+/* SAVE THE DATE */
+
+.hero .save {
+    letter-spacing: 6px;
+    font-size: 14px;
+    color: #a18450;
+    margin-bottom: 5px;
+}
+
+/* IT'S WEDDING TIME */
+
+.hero-wedding-time {
+    font-family: "Great Vibes", cursive;
+    font-size: clamp(45px, 7vw, 70px);
+    color: #73162f;
+    font-weight: 400;
+    margin-bottom: 25px;
+}
+
+/* PHOTOS */
+
+.hero-polaroids {
+    position: relative;
+    width: 620px;
+    max-width: 95%;
+    height: 350px;
+    margin: 10px auto 25px;
+}
+
+.hero-polaroid {
+    position: absolute;
+    width: 185px;
+    padding: 10px 10px 15px;
+    background: #fffdf8;
+
+    box-shadow:
+        0 15px 30px rgba(50,30,35,.20);
+
+    transition: .5s;
+}
+
+.hero-polaroid img {
+    width: 100%;
+    height: 235px;
+    display: block;
+    object-fit: cover;
+}
+
+.hero-polaroid-left {
+    left: 6%;
+    top: 25px;
+    transform: rotate(-8deg);
+    z-index: 1;
+}
+
+.hero-polaroid-center {
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%) rotate(1deg);
+    z-index: 3;
+}
+
+.hero-polaroid-right {
+    right: 6%;
+    top: 25px;
+    transform: rotate(8deg);
+    z-index: 2;
+}
+
+.hero-polaroid-left:hover {
+    transform: rotate(-3deg) translateY(-12px) scale(1.05);
+    z-index: 10;
+}
+
+.hero-polaroid-center:hover {
+    transform: translateX(-50%) translateY(-12px) scale(1.05);
+    z-index: 10;
+}
+
+.hero-polaroid-right:hover {
+    transform: rotate(3deg) translateY(-12px) scale(1.05);
+    z-index: 10;
+}
+
+/* TEXTE */
+
+.hero-intro {
+    max-width: 650px;
+    margin: 10px auto 0;
+    text-align: center;
+}
+
+.hero-intro .greeting {
+    font-family: "Great Vibes", cursive;
+    font-size: 40px;
+    color: #5a3a42;
+    margin-bottom: 18px;
+}
+
+.hero-intro p {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 20px;
+    line-height: 1.8;
+    color: #6d5959;
+}
+
+/* SEPARATION */
+
+.hero-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    max-width: 250px;
+    margin: 45px auto 35px;
+    color: #c9a961;
+}
+
+.hero-divider::before,
+.hero-divider::after {
+    content: "";
+    height: 1px;
+    background: #c9a961;
+    flex: 1;
+}
+
+/* DATE */
+
+.hero-date {
+    text-align: center;
+    color: #73162f;
+}
+
+.hero-date .day-name {
+    font-size: 13px;
+    letter-spacing: 5px;
+    color: #a18450;
+}
+
+.hero-date .day-number {
+    font-family: "Great Vibes", cursive;
+    font-size: 82px;
+    line-height: .9;
+    color: #73162f;
+}
+
+.hero-date .month {
+    font-size: 16px;
+    letter-spacing: 5px;
+    color: #a18450;
+}
+
+/* LIEU */
+
+.hero-location {
+    margin-top: 35px;
+    text-align: center;
+}
+
+.hero-location .place {
+    font-size: 20px;
+    letter-spacing: 3px;
+    color: #73162f;
+}
+
+.hero-location .city {
+    font-size: 18px;
+    font-style: italic;
+    color: #6d5959;
+    margin-top: 5px;
+}
+
+.hero-location .time {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 7px 25px;
+    border-top: 1px solid #c9a961;
+    border-bottom: 1px solid #c9a961;
+    font-size: 15px;
+    letter-spacing: 3px;
+    color: #a18450;
+}
+
+
+/* MOBILE */
+
+@media(max-width:600px) {
+
+    .hero {
+        padding: 70px 20px 80px;
+    }
+
+    .hero-wedding-time {
+        font-size: 48px;
+    }
+
+    .hero-polaroids {
+        width: 100%;
+        height: 270px;
+    }
+
+    .hero-polaroid {
+        width: 125px;
+        padding: 7px 7px 10px;
+    }
+
+    .hero-polaroid img {
+        height: 165px;
+    }
+
+    .hero-polaroid-left {
+        left: 0;
+    }
+
+    .hero-polaroid-right {
+        right: 0;
+    }
+
+    .hero-intro p {
+        font-size: 18px;
+    }
+
+    .hero-date .day-number {
+        font-size: 70px;
+    }
+
+}
+/* MOBILE */
+
+@media(max-width:600px) {
+
+    .curtain-content small {
+
+        font-size: 12px;
+
+        letter-spacing: 4px;
+    }
+
+    .curtain-content h1 {
+
+        font-size: 65px;
+
+        margin-bottom: 35px;
+    }
+
+    .open-button {
+
+        padding: 14px 25px;
+
+        font-size: 12px;
+    }
+
+    .countdown {
+
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero {
+
+        padding-top: 80px;
+    }
+
+    .hero h1 {
+
+        font-size: 65px;
+    }
+
+    .polaroid-gallery {
+
+        height: 300px;
+    }
+
+    .polaroid {
+
+        width: 125px;
+
+        padding: 7px 7px 27px;
+    }
+
+    .polaroid img {
+
+        height: 155px;
+    }
+
+    .polaroid span {
+
+        font-size: 13px;
+    }
+
+    .polaroid-left {
+
+        left: 2%;
+    }
+
+    .polaroid-right {
+
+        right: 2%;
+    }
+
+
+}
+/* =====================================================
+   QUELQUES PETITES ATTENTIONS
+===================================================== */
+
+.notes-section {
+    text-align: center;
+}
+
+.notes-grid {
+    max-width: 780px;
+    margin: 10px auto 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+}
+
+.note-card {
+    position: relative;
+    padding: 32px 25px;
+    background: rgba(255, 253, 248, 0.82);
+    border: 1px solid rgba(201, 169, 97, 0.65);
+    box-shadow: 0 10px 30px rgba(50, 30, 35, 0.10);
+    transition: transform .4s ease, box-shadow .4s ease;
+}
+
+.note-card::before {
+    content: "";
+    position: absolute;
+    top: 9px;
+    left: 9px;
+    right: 9px;
+    bottom: 9px;
+    border: 1px solid rgba(201, 169, 97, 0.25);
+    pointer-events: none;
+}
+
+.note-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(50, 30, 35, 0.16);
+}
+
+.note-decoration {
+    color: #c9a961;
+    font-size: 18px;
+    margin-bottom: 12px;
+    position: relative;
+}
+
+.note-decoration::before,
+.note-decoration::after {
+    content: "";
+    display: inline-block;
+    width: 35px;
+    height: 1px;
+    background: #c9a961;
+    vertical-align: middle;
+    margin: 0 10px;
+
+}
+
+.note-card h3 {
+    position: relative;
+    z-index: 2;
+    font-family: "Great Vibes", cursive;
+    font-size: 30px;
+    font-weight: 400;
+    color: #73162f;
+    margin-bottom: 10px;
+}
+
+.note-card p {
+    position: relative;
+    z-index: 2;
+    font-size: 17px;
+    line-height: 1.6;
+    color: #6d5959;
+    margin: 0;
+}
+
+
+/* MOBILE */
+
+@media(max-width:600px) {
+
+    .notes-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .note-card {
+        padding: 28px 20px;
+    }
+
+    .note-card h3 {
+        font-size: 28px;
+    }
+
+    .note-card p {
+        font-size: 16px;
+    }
+
+}
+</style>
+</head>
+
+
+<body>
+<audio id="weddingMusic" preload="auto">
+    <source src="Saloua&Skander.jpg/musique.mp3" type="audio/mpeg">
+</audio>
+
+<!-- =====================================================
+     PREMIERE PAGE — RIDEAUX
+===================================================== -->
+
+<div class="envelope-page" id="envelopePage">
+
+
+    <div class="decor one">✦</div>
+
+    <div class="decor two">✦</div>
+
+
+    <!-- RIDEAU GAUCHE -->
+
+    <div class="curtain curtain-left"></div>
+
+
+    <!-- RIDEAU DROIT -->
+
+    <div class="curtain curtain-right"></div>
+
+
+    <!-- TEXTE AU-DESSUS DES RIDEAUX -->
+
+    <div class="curtain-content" id="curtainContent">
+
+
+        <small>
+            THE WEDDING OF
+        </small>
+
+
+        <h1>
+            Skander & Saloua
+        </h1>
+
+
+        <button
+            class="open-button"
+            onclick="openInvitation()">
+
+            OUVRIR L'INVITATION
+
+        </button>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     DEUXIÈME PAGE — INCHANGÉE
+===================================================== -->
+
+<div class="invitation" id="invitation">
+
+
+    <section class="hero">
+
+    <div class="save">
+        SAVE THE DATE
+    </div>
+
+    <div class="hero-wedding-time">
+        It’s Wedding Time!
+    </div>
+
+
+    <!-- PHOTOS -->
+
+    <div class="hero-polaroids">
+
+        <div class="hero-polaroid hero-polaroid-left">
+
+            <img
+                src="Saloua&Skander.jpg/souvenir2.jpg"
+                alt="Skander & Saloua"
+            >
+
+        </div>
+
+
+        <div class="hero-polaroid hero-polaroid-center">
+
+            <img
+                src="Saloua&Skander.jpg/souvenir1.jpg"
+                alt="Skander & Saloua"
+            >
+
+        </div>
+
+
+        <div class="hero-polaroid hero-polaroid-right">
+
+            <img
+                src="Saloua&Skander.jpg/souvenir3.jpg"
+                alt="Skander & Saloua"
+            >
+
+        </div>
+
+    </div>
+
+
+    <!-- TEXTE -->
+
+    <div class="hero-intro">
+
+        <div class="greeting">
+            Chers amis,
+        </div>
+
+        <p>
+
+            Il existe des rencontres qui changent une vie,
+            des instants qui donnent un nouveau sens au temps
+            et des promesses qui méritent d’être célébrées.
+
+            <br><br>
+
+            Et parce qu’un tel moment ne serait pas le même
+            sans vous, nous comptons sur votre bonne humeur,
+            votre énergie, vos plus beaux sourires…
+            et vos meilleurs pas de danse pour faire de cette
+            journée un souvenir inoubliable.
+
+            <br><br>
+
+            Votre présence rendra cette journée encore plus belle,
+            et nous avons hâte de partager ce nouveau chapitre
+            de notre histoire avec vous.
+
+        </p>
+
+    </div>
+
+
+    <!-- PETITE SEPARATION -->
+
+    <div class="hero-divider">
+        <span>✦</span>
+    </div>
+
+
+    <!-- DATE -->
+
+    <div class="hero-date">
+
+        <div class="day-name">
+            VENDREDI
+        </div>
+
+        <div class="day-number">
+            23
+        </div>
+
+        <div class="month">
+            OCTOBRE 2026
+        </div>
+
+    </div>
+
+
+    <!-- LIEU -->
+
+    <div class="hero-location">
+
+        <div class="place">
+            DAR BOURAOUI
+        </div>
+
+        <div class="city">
+            Carthage · Salle Mégara
+        </div>
+
+        <div class="time">
+            20:00
+        </div>
+
+    </div>
+
+</section>
+
+    <section>
+
+        <div class="section-title">
+
+            <small>LE GRAND JOUR APPROCHE</small>
+
+            <h2>Compte à rebours</h2>
+
+        </div>
+
+
+        <div class="countdown">
+
+            <div class="count-box">
+
+                <span id="days">00</span>
+
+                <small>JOURS</small>
+
+            </div>
+
+
+            <div class="count-box">
+
+                <span id="hours">00</span>
+
+                <small>HEURES</small>
+
+            </div>
+
+
+            <div class="count-box">
+
+                <span id="minutes">00</span>
+
+                <small>MINUTES</small>
+
+            </div>
+
+
+            <div class="count-box">
+
+                <span id="seconds">00</span>
+
+                <small>SECONDES</small>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <section>
+
+        <div class="section-title">
+
+            <small>NOTRE SOIRÉE</small>
+
+            <h2>Le programme</h2>
+
+        </div>
+
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+
+                <strong>20:00</strong>
+
+                <p>
+                    Accueil des invités
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <strong>20:30</strong>
+
+                <p>
+                    Katben Sdek
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <strong>21:00</strong>
+
+                <p>
+                    Soirée dansante
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <section class="rsvp">
+
+        <div class="section-title">
+
+            <small>
+                NOUS ESPÉRONS VOUS VOIR
+            </small>
+
+            <h2 style="color:#73162f;">
+                Votre présence
+            </h2>
+
+        </div>
+
+
+        <p
+            style="
+            font-size:18px;
+            margin-bottom:35px;
+            color:#73162f
+            ">
+
+            Nous serions très heureux de vous compter
+            parmi nous pour célébrer cette belle journée.
+
+        </p>
+
+
+        <div class="rsvp-buttons">
+
+            <button onclick="presence('oui')">
+
+                ✓ OUI, JE SERAI PRÉSENT(E)
+
+            </button>
+
+
+            <button onclick="presence('non')">
+
+                ✕ NON, JE NE POURRAI PAS VENIR
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <section class="dress-code">
+
+        <div class="section-title">
+
+            <small>
+                POUR ELLES
+            </small>
+
+            <h2>
+                Dress Code
+            </h2>
+
+        </div>
+
+
+        <p class="dress-intro">
+
+            Pour créer une belle harmonie autour de nous,
+            nous invitons les girls à privilégier les couleurs suivantes :
+
+        </p>
+
+
+        <div class="color-code">
+    <div class="color-circle">
+        <img src="Saloua&Skander.jpg/Peach.jpg" alt="">
+    </div>
+
+    <div class="color-circle">
+        <img src="Saloua&Skander.jpg/Coral.png" alt="">
+    </div>
+
+    <div class="color-circle">
+        <img src="Saloua&Skander.jpg/Mango.png" alt="">
+    </div>
+
+    <div class="color-circle">
+        <img src="Saloua&Skander.jpg/Rain.png" alt="">
+    </div>
+
+    <div class="color-circle">
+        <img src="Saloua&Skander.jpg/eucalyptus.jpg" alt="">
+    </div>
+    
+</div>
+    </section>
+
+<!-- =====================================================
+     QUELQUES PETITES ATTENTIONS
+===================================================== -->
+
+<section class="notes-section">
+
+    <div class="section-title">
+        <small>POUR UNE BELLE SOIRÉE</small>
+        <h2>Quelques petites attentions</h2>
+    </div>
+
+    <div class="notes-grid">
+
+        <div class="note-card">
+            <div class="note-decoration">✦</div>
+            <h3>Parking</h3>
+            <p>
+                Un parking gratuit sera à votre disposition.
+            </p>
+        </div>
+
+        <div class="note-card">
+           <div class="note-decoration">✦</div>
+            <h3>Une soirée entre adultes</h3>
+            <p>
+                La réception sera exclusivement réservée aux adultes.
+                Merci de prévoir une organisation sans enfants.
+            </p>
+        </div>
+
+        <div class="note-card">
+           <div class="note-decoration">✦</div>
+            <h3>Préparez-vous à danser !</h3>
+            <p>
+                Mettez vos plus beaux pas de danse de côté…
+                la soirée s’annonce festive !
+            </p>
+        </div>
+
+        <div class="note-card">
+           <div class="note-decoration">✦</div>
+            <h3>Ponctualité</h3>
+            <p>
+                Nous vous invitons à arriver à l’heure afin de profiter
+                pleinement de chaque moment de cette belle soirée.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+<section class="guestbook-section">
+
+    <div class="section-title">
+        <small>AVANT DE NOUS QUITTER</small>
+        <h2>Laissez-nous un souvenir</h2>
+    </div>
+
+    <div class="guestbook-box">
+
+        <p>
+            Votre présence est notre plus beau cadeau.
+            <br>
+            Laissez-nous quelques mots que nous pourrons
+            garder précieusement.
+        </p>
+
+        <input
+            type="text"
+            id="guestName"
+            placeholder="Votre prénom">
+
+        <textarea
+            id="guestMessage"
+            placeholder="Écrivez-nous quelques mots..."></textarea>
+
+        <button
+            class="gold-button"
+            onclick="sendMessage()">
+            LAISSER MON MESSAGE
+        </button>
+
+    </div>
+
+
+
+    </section>
+
+<footer>
+    <h2>Skander & Saloua</h2>
+
+    <p>
+        23 • 10 • 2026
+    </p>
+
+    <p style="margin-top:25px;">
+        Avec amour 🤍
+    </p>
+</footer>
+
+
+</div>
+
+
+
+<script>
+
+
+/* =====================================================
+   OUVERTURE DES RIDEAUX
+===================================================== */
+
+function openInvitation() {
+
+    const page =
+        document.getElementById("envelopePage");
+
+    const content =
+        document.getElementById("curtainContent");
+
+    const music =
+        document.getElementById("weddingMusic");
+
+    /* MUSIQUE */
+    music.volume = 0.6;
+
+    music.play().catch(function(error) {
+        console.log("Lecture audio bloquée :", error);
+    });
+
+    /* Le texte disparaît doucement */
+    content.classList.add("hidden");
+
+    /* Les rideaux commencent à s'ouvrir */
+    page.classList.add("opening");
+
+    /*
+       On attend la fin complète
+       de l'ouverture des rideaux
+    */
+    setTimeout(function() {
+
+        page.style.display = "none";
+
+        document
+            .getElementById("invitation")
+            .classList.add("show");
+
+        window.scrollTo(0, 0);
+
+    }, 4500);
+}
+
+
+
+/* =====================================================
+   COMPTE À REBOURS
+===================================================== */
+
+const weddingDate =
+    new Date("October 23, 2026 20:00:00").getTime();
+
+
+function updateCountdown() {
+
+    const now =
+        new Date().getTime();
+
+    const distance =
+        weddingDate - now;
+
+
+    if (distance <= 0) {
+
+        document.getElementById("days").innerText = "00";
+
+        document.getElementById("hours").innerText = "00";
+
+        document.getElementById("minutes").innerText = "00";
+
+        document.getElementById("seconds").innerText = "00";
+
+        return;
+    }
+
+
+    const days =
+        Math.floor(
+            distance /
+            (1000 * 60 * 60 * 24)
+        );
+
+
+    const hours =
+        Math.floor(
+            (distance %
+            (1000 * 60 * 60 * 24)) /
+            (1000 * 60 * 60)
+        );
+
+
+    const minutes =
+        Math.floor(
+            (distance %
+            (1000 * 60 * 60)) /
+            (1000 * 60)
+        );
+
+
+    const seconds =
+        Math.floor(
+            (distance %
+            (1000 * 60)) /
+            1000
+        );
+
+
+    document.getElementById("days").innerText =
+        String(days).padStart(2, "0");
+
+
+    document.getElementById("hours").innerText =
+        String(hours).padStart(2, "0");
+
+
+    document.getElementById("minutes").innerText =
+        String(minutes).padStart(2, "0");
+
+
+    document.getElementById("seconds").innerText =
+        String(seconds).padStart(2, "0");
+
+}
+
+
+setInterval(updateCountdown, 1000);
+
+updateCountdown();
+
+
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyzca9x2JZo9j3tCJn-qM89zReRKEiZtgpSKGy9XVpzxYuQrOPVpa11nIEDzmNxkies_w/exec";
+
+/* =====================================================
+   RSVP
+===================================================== */
+
+function presence(choice) {
+
+    const nom = prompt("Votre prénom et nom :");
+
+    if (!nom) {
+        return;
+    }
+
+    fetch(GOOGLE_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        body: JSON.stringify({
+            nom: nom,
+            presence: choice === "oui" ? "OUI" : "NON",
+            message: ""
+        })
+    })
+    .then(() => {
+
+        if (choice === "oui") {
+
+            alert(
+                "Merci " + nom +
+                " ❤️ Nous sommes très heureux de vous compter parmi nous !"
+            );
+
+        } else {
+
+            alert(
+                "Merci " + nom +
+                " ❤️ Merci de nous avoir prévenus."
+            );
+
+        }
+
+    })
+    .catch(error => {
+
+        console.error(error);
+
+        alert(
+            "Une erreur est survenue. Merci de réessayer."
+        );
+    });
+}
+
+
+/* =====================================================
+   MESSAGE
+===================================================== */
+
+function sendMessage() {
+
+    const name =
+        document.getElementById("guestName").value.trim();
+
+    const message =
+        document.getElementById("guestMessage").value.trim();
+
+    if (!name || !message) {
+
+        alert(
+            "Merci de remplir votre prénom et votre message."
+        );
+
+        return;
+    }
+
+    fetch(GOOGLE_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        body: JSON.stringify({
+            nom: name,
+            presence: "",
+            message: message
+        })
+    })
+    .then(() => {
+
+        alert(
+            "Merci " +
+            name +
+            " ❤️ Votre message a bien été enregistré."
+        );
+
+        document.getElementById("guestName").value = "";
+        document.getElementById("guestMessage").value = "";
+
+    })
+    .catch(error => {
+
+        console.error(error);
+
+        alert(
+            "Une erreur est survenue. Merci de réessayer."
+        );
+    });
+
+}
+
+</script>
+
+
+</body>
+</html>
