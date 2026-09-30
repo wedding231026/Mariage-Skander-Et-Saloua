@@ -675,20 +675,21 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 15px;
+    gap: 10px;
     margin: 20px auto;
+    padding: 0 10px;
 }
 
 .color-circle {
-    width: 65px;
-    height: 65px;
+    width: 55px;
+    height: 55px;
     border-radius: 50%;
     overflow: hidden;
-    border: none !important;
-    outline: none !important;
-    box-shadow: none !important;
+    border: none;
+    outline: none;
+    box-shadow: none;
     padding: 0;
-    flex-shrink: 0;
+    flex-shrink: 1;
 }
 
 .color-circle img {
@@ -696,7 +697,18 @@ section {
     height: 100%;
     object-fit: cover;
     display: block;
-    border: none;
+}
+
+@media (max-width: 480px) {
+    .color-code {
+        gap: 7px;
+        padding: 0 8px;
+    }
+
+    .color-circle {
+        width: 50px;
+        height: 50px;
+    }
 }
 
 .dress-intro {
